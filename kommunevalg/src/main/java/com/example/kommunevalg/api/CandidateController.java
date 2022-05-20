@@ -9,12 +9,18 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/candidates")
+//@CrossOrigin
 public class CandidateController {
 
   CandidateService candidateService;
 
   public CandidateController(CandidateService candidateService) {
     this.candidateService = candidateService;
+  }
+
+  @GetMapping("/{id}")
+  public CandidateDTO findPerson(@PathVariable int id ){
+    return candidateService.findCandidate(id);
   }
 
   @PostMapping

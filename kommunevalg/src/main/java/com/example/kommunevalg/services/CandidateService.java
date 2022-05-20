@@ -31,6 +31,11 @@ public class CandidateService {
     return new CandidateDTO(candidate);
   }
 
+  public CandidateDTO findCandidate(int id){
+    Candidate candidate =  candidateRepository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"Candidate not found"));
+    return new CandidateDTO(candidate);
+  }
+
   public CandidateDTO editCandidate(CandidateDTO c,int id){
     Candidate candidate = candidateRepository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"Candidate with provided id not found"));
     candidate.setCommune(c.getCommune());

@@ -13,6 +13,8 @@ public class GlobalCorsSetup implements WebMvcConfigurer {
   public void addCorsMappings(CorsRegistry registry) {
     // Allow all origins temporary for development
     CorsRegistration corsRegistration = registry.addMapping("/**");
+    corsRegistration.allowedMethods("*");
+
     //You can fine-tune the cors-rules using the corsRegistration object
   }
 }
