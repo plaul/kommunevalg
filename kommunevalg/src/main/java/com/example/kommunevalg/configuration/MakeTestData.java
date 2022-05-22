@@ -6,9 +6,11 @@ import com.example.kommunevalg.entity.Party;
 import com.example.kommunevalg.repositories.CandidateRepository;
 import com.example.kommunevalg.repositories.PartyRepository;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 
 @Controller
+@Profile("!test")
 public class MakeTestData implements CommandLineRunner {
 
   CandidateRepository candidateRepository;
